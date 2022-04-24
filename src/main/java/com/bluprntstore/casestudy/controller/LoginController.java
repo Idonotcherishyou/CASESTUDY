@@ -21,14 +21,14 @@ public class LoginController {
         return response;
     }
 
-    @RequestMapping(value = "/user/loginSubmit", method = { RequestMethod.POST})
-    public ModelAndView loginSubmit(@Valid RegisterFormBean form, BindingResult bindingResult) throws Exception {
-        ModelAndView response = new ModelAndView();
-        log.info("you are now logged in");
-        log.info(form.toString());
-        response.setViewName("redirect:/index");
-        return response;
-    }
+//    @RequestMapping(value = "/user/loginSubmit", method = { RequestMethod.POST})
+//    public ModelAndView loginSubmit(@Valid RegisterFormBean form, BindingResult bindingResult) throws Exception {
+//        ModelAndView response = new ModelAndView();
+//        log.info("you are now logged in");
+//        log.info(form.toString());
+//        response.setViewName("redirect:/index");
+//        return response;
+
 }
 
 

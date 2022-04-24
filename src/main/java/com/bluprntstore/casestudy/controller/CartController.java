@@ -43,10 +43,11 @@ public class CartController {
         ModelAndView response = new ModelAndView();
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); // ask spring security for current user
-        String loggedUserEmail = authentication.getName(); // get current users email
+        String loggedUserEmail = authentication.getName();
+        log.info(loggedUserEmail);// get current users email
         User user = userDAO.findByEmail(loggedUserEmail); // find user from db with this email
 
-        log.info("found user: " + user.getId());
+//        <log.info("found user: " + user.getId());>
 
 
 

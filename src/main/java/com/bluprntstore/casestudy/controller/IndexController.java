@@ -33,9 +33,9 @@ public class IndexController {
         User loggedInUser = userDao.findByEmail(currentPrincipalName);
 
         if (loggedInUser == null) {
-            log.debug("Not logged in");
+            log.info("Not logged in");
         } else {
-            log.debug("User logged in " + loggedInUser);
+            log.info("User logged in " + loggedInUser);
         }
 
         response.setViewName("index");

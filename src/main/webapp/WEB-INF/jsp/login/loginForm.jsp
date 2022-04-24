@@ -1,7 +1,7 @@
 
 
 
-<form action="/user/loginSubmit" method="POST">
+<form action="/login/loginSubmit" method="POST">
 
     Username : <input type="text" name="username">
     <br>
@@ -9,3 +9,4 @@
     <br>
     <button type="submit">Submit</button>
 </form>
+

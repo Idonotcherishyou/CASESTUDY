@@ -1,6 +1,7 @@
 package com.bluprntstore.casestudy.database.entity;
 
 import lombok.*;
+import org.apache.commons.lang3.builder.ToStringExclude;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 
@@ -37,7 +38,7 @@ public class User {
     @NonNull
     @Column(name = "password")
     private String password;
-
+    @ToString.Exclude
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private Set<Order> orders;
 

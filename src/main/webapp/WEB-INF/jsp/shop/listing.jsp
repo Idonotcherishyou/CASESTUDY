@@ -7,7 +7,7 @@
 
 
 <c:forEach items="${prints}" var="print">
-    <form action="/shop/cart" method="post">
+    <form action="/shop/cart/${print.id}" method="post">
         <input type="hidden" name="productId" value="${user.id}">
     <img src="${print.imageUrl}"/>
     <button type="submit">Add To cart</button>
