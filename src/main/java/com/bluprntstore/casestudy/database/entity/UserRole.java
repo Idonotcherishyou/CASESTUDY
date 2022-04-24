@@ -19,7 +19,7 @@ public class UserRole {
     private Integer userId;
 
     @Column(name = "role_name")
-    private String role_name;
+    private String roleName;
 
 
 }

@@ -26,9 +26,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(final HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
+                //These pages require login and will give access to all
+                //if no login it will redirect to login page
                 .authorizeRequests()
-                .antMatchers("/pub/**", "/error/**", "/login/**", "/index").permitAll()
-                .antMatchers("/admin/**", "/cart/**", "/user/**").authenticated()
+                .antMatchers("/pub/**", "/error/**", "/login/**", "/index","/user/**","/shop/**","/cart/**").permitAll()
+                //this gives access to admin
+                .antMatchers("/admin/**", "/prints/**").authenticated()
                 .and()
                 .formLogin()
                 // this is the URL of the login page
@@ -64,6 +67,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean(name="passwordEncoder")
     public PasswordEncoder getPasswordEncoder() {
+
         return new BCryptPasswordEncoder();
     }
 

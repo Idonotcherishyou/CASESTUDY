@@ -34,6 +34,6 @@ public class Prints {
 
     @OneToMany(mappedBy = "prints", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
-    private Set<OrderPrint> orderProducts;
+    private Set<OrderPrint> orderPrint;
 
 }

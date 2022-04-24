@@ -56,7 +56,7 @@ public class ErrorController {
         StringBuffer result = new StringBuffer();
 
         for (String frame : stack) {
-            if (frame.contains("teksystems")) {
+            if (frame.contains("bluprntstore")) {
                 result.append(" &nbsp; &nbsp; &nbsp;" + frame.trim().substring(3) + "<br>\n");
             } else if ( frame.contains("Caused by:")) {
                 result.append("Caused By: " + frame + "<br>");

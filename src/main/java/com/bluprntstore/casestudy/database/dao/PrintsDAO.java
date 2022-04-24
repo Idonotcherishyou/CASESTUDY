@@ -5,11 +5,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 
 
 @Repository
 public interface PrintsDAO extends JpaRepository<Prints, Long> {
+    Prints findById(@Param("id") Integer id);
 
-    public Prints findById(@Param("id") Integer id);
 
 }

@@ -25,6 +25,8 @@ import java.util.Set;
 
         @Column(name="credit_card")
         private String credit_card;
+        @Column(name = "shipping_address")
+        String shippingAddress;
 
 
         @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -33,7 +35,7 @@ import java.util.Set;
 
         @OneToMany(mappedBy = "order", fetch = FetchType.LAZY,
                 cascade = CascadeType.ALL)
-        private Set<OrderPrint> orderProducts;
+        private Set<OrderPrint> orderPrint;
 
     }
 

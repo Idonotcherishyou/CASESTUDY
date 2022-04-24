@@ -11,7 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "order_print")
+@Table(name = "orderprint")
 public class OrderPrint {
 
     @Id
@@ -19,10 +19,18 @@ public class OrderPrint {
     @Column(name = "id")
     private Integer id;
 
+    @Column(name = "quantity")
+    int quantity;
+
+
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "prints_id_fk", nullable = false)
     private Prints prints;
 
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "order_id_fk", nullable = false)
     private Order order;
