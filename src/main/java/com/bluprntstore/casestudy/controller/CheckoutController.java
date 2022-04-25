@@ -97,33 +97,27 @@ public class CheckoutController {
         String loggedUserEmail = authentication.getName(); // get current users email
         User user = userDAO.findByEmail(loggedUserEmail); // find user from db with this email
 
-        Order order = orderDAO.findByUserIdAndStatus(user.getId(), "PENDING"); // find current users' cart
+//        Order order = orderDAO.findByUserIdAndStatus(user.getId(), "PENDING"); // find current users' cart
+//
+//        order.setCredit_card(orderFormBean.getCredit_card());
+//        order.setShippingAddress(orderFormBean.getShippingaddress());
+//
+//
+//        order.setStatus("COMPLETE");
+//
+//        Order completedOrder = orderDAO.save(order);
+//
+//        response.addObject("completedOrder", completedOrder);
+//
+//        response.setViewName("redirect:/home");
+//        return response;
+//    }
 
-        order.setCredit_card(orderFormBean.getCredit_card());
-        order.setShippingAddress(orderFormBean.getShippingaddress());
+        //need to validate payment details
+        // credit card shows the name, card number, dont care about other details
+        // a messages shows if selecting others saying you'll be "redirected"
 
+        //able to submit order and save the order. set cart to complete status.
 
-        order.setStatus("COMPLETE");
-
-        Order completedOrder = orderDAO.save(order);
-
-        response.addObject("completedOrder", completedOrder);
-
-        response.setViewName("redirect:/home");
-        return response;
-    }
-
-    //need to validate payment details
-    // credit card shows the name, card number, dont care about other details
-    // a messages shows if selecting others saying you'll be "redirected"
-
-    //able to submit order and save the order. set cart to complete status.
-
-
-
-
-
-
-
-}
-
+return response;
+}}

@@ -12,10 +12,14 @@ import java.util.List;
 @Repository
 public interface OrderDAO extends JpaRepository<Order, Long> {
 
-    @Query(value = "SELECT * FROM orders WHERE user_id = :userId AND status = :status", nativeQuery = true)
-    public Order findByUserIdAndStatus(@Param("userId") Integer userId, @Param("status") String status);
+
+    @Query(value = "SELECT * FROM order WHERE user_id = :userId AND cart_status = :cartStatus", nativeQuery = true)
+    public Order findByUserIdAndCartStatus(@Param("userId") Integer userId, @Param("cartStatus") String cartStatus);
 
     public Order findById(@Param("id") Integer id);
+
+    public List<Order> findAllByUser(@Param("user") User user);
+
 
 
 }
