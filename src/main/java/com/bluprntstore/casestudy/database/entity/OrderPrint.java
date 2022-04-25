@@ -20,7 +20,7 @@ public class OrderPrint {
     private Integer id;
 
     @Column(name = "quantity")
-    int quantity;
+    private Integer quantity;
 
 
     @ToString.Exclude

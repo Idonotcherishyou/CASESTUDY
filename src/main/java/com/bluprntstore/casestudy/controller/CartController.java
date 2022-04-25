@@ -85,7 +85,7 @@ public class CartController {
         log.info("added: " + cartItem.getPrints().getPrice());
 
 
-        response.setViewName("redirect:/shop/checkout");
+        response.setViewName("shop/cart");
 //        return ModelAndView("redirect:/shop/checkout/{userId}");
         return response;
     }
@@ -104,7 +104,7 @@ public class CartController {
             System.out.println("product removed from cart");
         }
 
-        return new ModelAndView("redirect:/shop/checkout");
+        return new ModelAndView("redirect:/shop/cart");
     }
 
 //

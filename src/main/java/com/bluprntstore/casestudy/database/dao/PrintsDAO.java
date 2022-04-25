@@ -10,8 +10,6 @@ import java.util.List;
 
 @Repository
 public interface PrintsDAO extends JpaRepository<Prints, Long> {
-    static void create(Prints printCart) {
-    }
 
     Prints findById(@Param("id") Integer id);
 

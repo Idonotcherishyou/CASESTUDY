@@ -10,6 +10,7 @@ import com.bluprntstore.casestudy.formbean.PrintsFormBean;
 import com.bluprntstore.casestudy.formbean.RegisterFormBean;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -37,6 +38,7 @@ public class PrintsController {
     @Autowired
     private PrintsDAO printsDAO;
 
+    @PreAuthorize("hasAuthority('Admin')")
     @RequestMapping(value = "/home/prints", method = RequestMethod.GET)
     public ModelAndView purchase() throws Exception {
         ModelAndView response = new ModelAndView();
@@ -48,7 +50,7 @@ public class PrintsController {
 
         return response;
     }
-
+    @PreAuthorize("hasAuthority('Admin')")
     @RequestMapping(value = "/home/printsSubmit", method = { RequestMethod.POST, RequestMethod.GET})
     public ModelAndView purchaseSubmit(@Valid PrintsFormBean form, BindingResult bindingResult) throws Exception {
         ModelAndView response = new ModelAndView();

@@ -62,7 +62,7 @@ public class CheckoutController {
 //     BigDecimal cartTotal = BigDecimal.valueOf(getOrderTotal);
 
         for(Map<String,Object> row: cartProducts){
-            BigDecimal price = (BigDecimal)row.get("total");
+            Double price = (Double) row.get("total");
             getSubTotal += price.doubleValue();
             calculateSalesTax = getSubTotal * salesTax;
             getCartTotal = getSubTotal + calculateSalesTax;
