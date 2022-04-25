@@ -107,7 +107,7 @@ public class PrintsController {
         response.setViewName("shop/listing");
         // listing prints from the database
         List<Prints> allprints = printsDAO.findAll();
-        response.addObject("prints",allprints);
+        response.addObject("allprints",allprints);
         log.info("prints available");
 
         return response;

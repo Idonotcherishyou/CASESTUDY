@@ -3,6 +3,7 @@ package com.bluprntstore.casestudy.database.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Set;
 
     @Getter
@@ -23,10 +24,15 @@ import java.util.Set;
         @Column(name="status")
         private String status;
 
+        @Column(name="order_date")
+        Date orderdate;
+
         @Column(name="credit_card")
         private String credit_card;
         @Column(name = "shipping_address")
         String shippingAddress;
+
+
 
 
         @ManyToOne(fetch = FetchType.LAZY, optional = false)

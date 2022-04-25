@@ -23,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -45,8 +46,8 @@ public class CartController {
     @Autowired
     private OrderDAO orderDAO;
 
-    @RequestMapping(value = "/cart/addItem/{id}") // ex: /cart/addItem/3 (pointing to product with id of 3)
-    public ModelAndView addToCart(@PathVariable("id") Integer id) {
+    @RequestMapping(value = "/cart/addItem/{printsid}") // ex: /cart/addItem/3 (pointing to product with id of 3)
+    public ModelAndView addToCart(@PathVariable("printsid") Integer id) {
         ModelAndView response = new ModelAndView();
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); // ask spring security for current user
@@ -58,21 +59,22 @@ public class CartController {
 
 //        List<Order> orderList = orderDAO.findAllByUser(user);
 //        System.out.println(orderList);
-        Order order = orderDAO.findByUserIdAndCartStatus(user.getId(), "PENDING"); // find current users' cart
+        Order orders = orderDAO.findByUserIdAndCartStatus(user.getId(), "PENDING"); // find current users' cart
 //        Order order = orders.get(0);
 
-        if(order == null){ // if there are no pending orders for this user aka: no active cart
-            order = new Order(); // create a new one
-            order.setStatus("PENDING");
-            order.setUser(user); // assign this cart to the current user
-            order = orderDAO.save(order); // save to db and reassign "order" variable to DB response (this ensures we have the correct id from sql auto-increment)
+        if(orders == null){ // if there are no pending orders for this user aka: no active cart
+            orders = new Order(); // create a new one
+            orders.setStatus("PENDING");
+            orders.setOrderdate(new Date());
+            orders.setUser(user); // assign this cart to the current user
+            orders = orderDAO.save(orders); // save to db and reassign "order" variable to DB response (this ensures we have the correct id from sql auto-increment)
         }
         // getting the user order, if null, creating one
         Prints prints = printsDAO.findById(id);
-        OrderPrint cartItem = orderPrintDAO.findPrintsOrderByOrderAndPrints(order,prints); // is this item already in the cart?
+        OrderPrint cartItem = orderPrintDAO.findPrintsOrderByOrderAndPrints(orders,prints); // is this item already in the cart?
         if(cartItem == null){ // if not, add it
             cartItem = new OrderPrint();
-            cartItem.setOrder(order);
+            cartItem.setOrder(orders);
             cartItem.setPrints(prints);
             cartItem.setQuantity(1);
         } else {
