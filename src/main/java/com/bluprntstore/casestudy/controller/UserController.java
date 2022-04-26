@@ -77,7 +77,7 @@ public class UserController {
     @RequestMapping(value="/user/accountEditForm", method = RequestMethod.GET )
     public ModelAndView accountEdit() throws Exception {
         ModelAndView response = new ModelAndView();
-        response.setViewName("user/editAccount");
+        response.setViewName("user/accountEdit");
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();

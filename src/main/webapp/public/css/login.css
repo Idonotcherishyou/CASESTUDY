@@ -165,7 +165,7 @@ footer{
 .footer-content h3{
     font-size: 1.8rem;
     font-weight: 400;
-    text-transform: capitalize;
+    text-transform: lowercase;
     line-height: 3rem;
 }
 .footer-content p{

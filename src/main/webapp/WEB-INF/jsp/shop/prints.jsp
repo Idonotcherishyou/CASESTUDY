@@ -42,14 +42,6 @@
 </form>
 
 
-<%--<c:if test="${bindingResult.hasErrors()}">--%>
-<%--    <br>--%>
-
-<%--    <c:forEach items="${bindingResult.getAllErrors()}" var="error">--%>
-<%--        <div style="color:red;">${error.getDefaultMessage()}</div>--%>
-<%--    </c:forEach>--%>
-<%--</c:if>--%>
-
 
 
 <jsp:include page="../include/footer.jsp" />

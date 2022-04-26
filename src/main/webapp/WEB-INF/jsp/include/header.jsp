@@ -60,7 +60,7 @@
             <ul>
                 <li><a class="nav-link scrollto active" href="/index">Home</a></li>
                 <sec:authorize access="hasAuthority('Admin')">
-                    <li><a class="nav-link scrollto" href="/shop/prints">Prints</a></li>
+                    <li><a class="nav-link scrollto" href="/home/prints">Prints</a></li>
                 </sec:authorize>
 <%--                <sec:authorize access="hasAuthority('Admin')">--%>
 <%--                    <li><a class="nav-link scrollto" href="/user/search">Search</a></li>--%>

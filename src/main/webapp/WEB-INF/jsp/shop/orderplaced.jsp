@@ -13,6 +13,8 @@
         Having trouble? <a href="">Contact us</a>
     </p>
     <p class="lead">
-        <a class="btn btn-primary btn-sm" href="https://bootstrapcreative.com/" role="button">Continue to homepage</a>
+        <a class="btn btn-primary btn-sm" href="/index" role="button">Continue to homepage</a>
     </p>
 </div>
+
+<jsp:include page="../include/footer.jsp" />
