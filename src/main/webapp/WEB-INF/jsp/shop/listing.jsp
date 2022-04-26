@@ -16,7 +16,7 @@
                         <h5 class="card-title">${allprints.name}</h5>
                         <h5 class="card-title">${allprints.price}</h5>
 <%--                        <a href="/cart/check-out/${allprints.id}" class="btn btn-primary">Buy Now</a>--%>
-                        <a href="/cart/addItem/${allprints.id}" class="btn btn-primary">Add To Cart</a>
+                        <a href="/orderplaced" class="btn btn-primary">Place order</a>
                     </div>
                 </div>
             </c:forEach>

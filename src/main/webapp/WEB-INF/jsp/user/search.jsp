@@ -2,59 +2,41 @@
 
 <jsp:include page="../include/header.jsp" />
 
-<!-- rewrite this as a case statement using c:choose -->
-<c:if test="${empty form.id}">
-    <h1>Sign Up</h1>
-</c:if>
+<h1>Search</h1>
 
-<c:if test="${not empty form.id}">
-    <h1>Edit User</h1>
-</c:if>
-
-<form action="/user/registerSubmit"   method="get">
-    <input type="hidden" name="id" value="${form.id}">
-
-    Email <input type="text" name="email" id="emailId" value="${form.email}">
-    <c:forEach items='${bindingResult.getFieldErrors("email")}' var="error">
-        <div style="color:red;">${error.getDefaultMessage()}</div>
-    </c:forEach>
-    <br>
-    First Name <input type="text" name="firstName" id="firstNameId" value="${form.firstName}">
-    <c:forEach items='${bindingResult.getFieldErrors("firstName")}' var="error">
-        <div style="color:red;">${error.getDefaultMessage()}</div>
-    </c:forEach>
-    <br>
-    Last Name <input type="text" name="lastName" id="lastNameId" value="${form.lastName}">
-    <c:forEach items='${bindingResult.getFieldErrors("lastName")}' var="error">
-        <div style="color:red;">${error.getDefaultMessage()}</div>
-    </c:forEach>
-    <br>
-    Password <input type="text" name="password" id="passwordId"  value="${form.password}">
-    <c:forEach items='${bindingResult.getFieldErrors("password")}' var="error">
-        <div style="color:red;">${error.getDefaultMessage()}</div>
-    </c:forEach>
-    <br>
-    Confirm Password <input type="text"
-                            name="confirmPassword" id="confirmPasswordId"  value="${form.confirmPassword}">
-    <c:forEach items='${bindingResult.getFieldErrors("confirmPassword")}' var="error">
-        <div style="color:red;">${error.getDefaultMessage()}</div>
-    </c:forEach>
-    <br>
-    Check Box <input type="checkbox" name="checkbox">
-    <br>
-
-    <br>
+<br>
+<form action="/user/search" method="GET">
+    First Name : <input type="text" name="firstName" value="${firstName}">
     <button type="submit">Submit</button>
 </form>
 
+<br>
 
-<c:if test="${bindingResult.hasErrors()}">
+<c:if test="${not empty firstName}">
+    <h5>Search Results Found ${usersModelKey.size()}</h5>
     <br>
-
-    <c:forEach items="${bindingResult.getAllErrors()}" var="error">
-        <div style="color:red;">${error.getDefaultMessage()}</div>
-    </c:forEach>
 </c:if>
+
+
+<table class="table">
+    <tr scope="row">
+        <th>Email</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Edit</th>
+    </tr>
+    <c:forEach items="${usersModelKey}" var="user">
+        <tr scope="row">
+            <td>${user.email}</td>
+            <td>${user.firstName}</td>
+            <td>${user.lastName}</td>
+            <td><a href="/user/edit/${user.id}">Edit</a></td>
+        </tr>
+    </c:forEach>
+</table>
+
+
+
 
 
 

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Slf4j
@@ -21,15 +22,18 @@ public class LoginController {
         return response;
     }
 
-    @RequestMapping(value = "/user/loginSubmit", method = {RequestMethod.POST})
+    @RequestMapping(value = "/user/logout", method = {RequestMethod.POST})
     public ModelAndView loginSubmit(@Valid RegisterFormBean form, BindingResult bindingResult) throws Exception {
         ModelAndView response = new ModelAndView();
-        log.info("you are now logged in");
+        log.info("you are now logged out");
         log.info(form.toString());
         response.setViewName("redirect:/index");
         return response;
 
     }
+
+
+
 }
 
 

@@ -1,6 +1,7 @@
 package com.bluprntstore.casestudy.database.entity;
 
 import lombok.*;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -20,7 +21,7 @@ import java.util.Set;
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "id")
         private Integer id;
-
+        @Nullable
         @Column(name="status")
         private String status;
 
