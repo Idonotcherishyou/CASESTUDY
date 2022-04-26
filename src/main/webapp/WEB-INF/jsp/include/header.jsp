@@ -62,7 +62,9 @@
                 <sec:authorize access="hasAuthority('Admin')">
                     <li><a class="nav-link scrollto" href="/shop/prints">Prints</a></li>
                 </sec:authorize>
-                <li><a class="nav-link scrollto" href="/shop/cart">Cart</a></li>
+<%--                <sec:authorize access="hasAuthority('Admin')">--%>
+<%--                    <li><a class="nav-link scrollto" href="/user/search">Search</a></li>--%>
+<%--                </sec:authorize>--%>
                 <sec:authorize access="!isAuthenticated()">
                 <li><a class="nav-link scrollto" href="/login/login">Login</a></li>
                 </sec:authorize>
@@ -72,6 +74,8 @@
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
+            <li><a class="nav-link scrollto" href="/user/search">Search</a></li>
+
     </div>
 </header>
 <script src="/public/js/main.js"></script>

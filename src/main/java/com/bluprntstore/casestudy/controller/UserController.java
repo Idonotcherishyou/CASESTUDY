@@ -56,7 +56,7 @@ public class UserController {
         return response;
     }
 
-    @PreAuthorize("hasAuthority('ADMIN')")
+//    @PreAuthorize("hasAuthority('ADMIN')")
 
     @RequestMapping(value="/user/search", method= RequestMethod.GET )
     public ModelAndView search(@RequestParam(value = "firstName", required = false) String firstName) {

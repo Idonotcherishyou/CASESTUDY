@@ -29,9 +29,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //These pages require login and will give access to all
                 //if no login it will redirect to login page
                 .authorizeRequests()
-                .antMatchers("/pub/**", "/error/**", "/login/**", "/index","/user/**","/shop/**","/cart/**").permitAll()
+                .antMatchers("/pub/**", "/error/**", "/login/**", "/index","/shop/**","/cart/**").permitAll()
                 //this gives access to admin
-                .antMatchers("/admin/**", "/prints/**").authenticated()
+                .antMatchers("/admin/**", "/prints/**","/user/**").authenticated()
                 .and()
                 .formLogin()
                 // this is the URL of the login page
