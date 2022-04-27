@@ -18,19 +18,11 @@
                     <i class="fa-solid fa-user-lock fa-beat"></i>
                 </div>
                 <label id="passwordLabel" for="password">Password: </label>
-                <input type="text" name="password" id="password" placeholder="helloworld"><br>
+                <input type="password" name="password" id="password" placeholder="helloworld"><br>
             </div>
             <button type="submit" class="btn btn-login">Login</button>
         </form>
     </div>
 </div>
 <jsp:include page="../include/footer.jsp" />
-<%--<form action="/login/loginSubmit" method="POST">--%>
-
-<%--    Email : <input type="text" name="username">--%>
-<%--    <br>--%>
-<%--    Password : <input type="text" name="password">--%>
-<%--    <br>--%>
-<%--    <button type="submit">Submit</button>--%>
-<%--</form>--%>
 

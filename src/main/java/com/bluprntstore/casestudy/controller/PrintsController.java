@@ -1,17 +1,11 @@
 package com.bluprntstore.casestudy.controller;
 
 import com.bluprntstore.casestudy.database.dao.PrintsDAO;
-import com.bluprntstore.casestudy.database.dao.UserDAO;
-import com.bluprntstore.casestudy.database.dao.UserRoleDAO;
 import com.bluprntstore.casestudy.database.entity.Prints;
-import com.bluprntstore.casestudy.database.entity.User;
-import com.bluprntstore.casestudy.database.entity.UserRole;
 import com.bluprntstore.casestudy.formbean.PrintsFormBean;
-import com.bluprntstore.casestudy.formbean.RegisterFormBean;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -22,19 +16,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import javax.validation.Valid;
-import java.util.Date;
 import java.util.List;
 
 @Slf4j
 @Controller
 public class PrintsController {
 
-    @Autowired
-    private UserDAO userDAO;
-    @Autowired
-    private UserRoleDAO userRoleDAO;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+
     @Autowired
     private PrintsDAO printsDAO;
 
@@ -82,7 +70,7 @@ public class PrintsController {
             prints = new Prints();
         }
 
-        // this puts the values into the database from the formbean
+       //formbean
         prints.setDescription(form.getDescription());
         prints.setName(form.getProductName());
         prints.setPrice(form.getPrice());
@@ -102,7 +90,7 @@ public class PrintsController {
 
     }
 
-// this controls listing
+
     @RequestMapping(value = "/shop/listing", method = RequestMethod.GET)
     public ModelAndView listall() throws Exception {
         ModelAndView response = new ModelAndView();

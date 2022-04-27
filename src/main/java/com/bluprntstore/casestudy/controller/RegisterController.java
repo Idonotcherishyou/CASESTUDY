@@ -49,9 +49,6 @@ public class RegisterController {
         log.info(form.toString());
 
 
-
-
-
         if (bindingResult.hasErrors()) {
 
             for (ObjectError error : bindingResult.getAllErrors()) {

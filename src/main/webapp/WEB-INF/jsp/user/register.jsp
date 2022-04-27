@@ -1,15 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <jsp:include page="../include/header.jsp" />
-<link rel="stylesheet" href="/public/css/register.css">
+<%--<link rel="stylesheet" href="/public/css/register.css">--%>
 <div class="content">
     <div class="form-area">
         <c:if test="${empty form.id}">
             <h1>Sign Up</h1>
-        </c:if>
-
-        <c:if test="${not empty form.id}">
-            <h1>Edit User</h1>
         </c:if>
         <form id="registrationForm" action="/user/registerSubmit"   method="post">
             <div class="form-group">
@@ -58,15 +54,17 @@
                 </div>
                 <label id="confirmPasswordLabel" for="confirmPassword">Confirm Password: </label>
                 <input type="text" name="confirmPassword" id="confirmPassword" placeholder="ex: Banana"><br>
-                <c:forEach items='${bindingResult.getFieldErrors("confirmPassword")}' var="error">
+<%--                <c:if items='${bindingResult.getFieldErrors("confirmPassword")}' var="error">--%>
                     <div style="color:red;">${error.getDefaultMessage()}</div>
-                </c:forEach>
+<%--                </c:if>--%>
             </div>
-            <button type="submit" class="btn btn-login">Login</button>
+            <div class = "form-group">
+              <button type="submit" >Register</button>
+            </div>
         </form>
     </div>
 </div>
 
 
 
-<jsp:include page="../include/footer.jsp" />
+<%--<jsp:include page="../include/footer.jsp" />--%>

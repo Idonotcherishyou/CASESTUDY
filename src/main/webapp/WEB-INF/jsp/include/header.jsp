@@ -69,8 +69,8 @@
                 <li><a class="nav-link scrollto" href="/login/login">Login</a></li>
                 </sec:authorize>
                 <li><a class="nav-link scrollto" href="/register/registerForm">Register</a></li>
-                <li><a class="nav-link scrollto" href="/shop/listing">Lisiting</a></li>
-                <li><a class="nav-link scrollto" href="/login/logout">LogOUT</a></li>
+                <li><a class="nav-link scrollto" href="/shop/listing">Listing</a></li>
+                <li><a class="nav-link scrollto" href="/login/logout">Logout</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
